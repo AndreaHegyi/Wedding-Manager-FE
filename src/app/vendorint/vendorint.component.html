@@ -22,32 +22,47 @@
 <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-8">
+        <form #userForm="ngForm" >
+          <fieldset>
         <div class="form-outline">
             <label class="form-label" for="form12">Name</label>
-            <input type="text" id="form12" class="form-control" />
+            <input type="text" id="form12" class="form-control" required/>
           </div>
           <div class="form-outline">
             <label class="form-label" for="typeEmail">Email</label>
-            <input type="email" id="typeEmail" class="form-control" />
+            <input type="email" id="typeEmail" class="form-control" required/>
           </div>
           <div class="form-outline">
             <label class="form-label" for="typePhone">Phone number</label>
-            <input type="tel" id="typePhone" class="form-control" />
+            <input type="tel" id="typePhone" class="form-control" required />
+          </div>
+          <div class="form-outline">
+            <label class="form-label" for="typeLocation">Location</label>
+            <input type="tel" id="typeLocation" class="form-control" required />
           </div>
           <div class="form-group">
             <label for="example4">Our services</label>
-            <textarea type="text" class="form-control" id="example4" rows="10" placeholder="Describe your business"></textarea>
+            <textarea type="text" class="form-control" id="example4" rows="10" placeholder="Describe your business" required></textarea>
           </div>
+          <!--
           <div class="d-flex justify-content-center">
             <div class="file-field">
               <input type='file' (change)="readUrl($event)">
               <img [src]="url" height="300px">
             </div>
             <div class="file-field border-right-10">
-              <input type='file' (change)="readUrl($event)">
+              <input type='file' (change)="readUrl2($event)">
               <img [src]="url" height="300px">
             </div>
           </div>
+          <div class="d-grid gap-3">
+            <div class="form-check">
+              <button class="btn btn-primary" type="submit" id="savebutton">Save changes</button>
+            </div>
+          </div>
+        -->
+          </fieldset>
+          </form>
     </div>
-  </div>
+</div>
 </div>

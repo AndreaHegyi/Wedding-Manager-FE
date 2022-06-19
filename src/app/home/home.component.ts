@@ -24,9 +24,9 @@ export class HomeComponent implements OnInit {
   }
 
   public addAccount(userForm: NgForm): void{
-    var select = (document.getElementById('appUserRoleList') as HTMLSelectElement).value;
-    console.log(select)
+    var select = (document.getElementById('appUserRole') as HTMLSelectElement).value;
     userForm.value.appUserRole = select;
+    console.log(select);
     this.userService.register(userForm.value).subscribe(
       (response: User) =>{
         console.log(response);
@@ -39,6 +39,17 @@ export class HomeComponent implements OnInit {
       }
     );
     this.router.navigate(['./confirm']);
-    console.log('values:', userForm.value.appUserRole)
+    //console.log('values:', userForm.value.appUserRole)
 }
+
+public saveChanges(): boolean{
+  var role = (document.getElementById('appUserRole') as HTMLSelectElement).value;
+  if(role === "VENDOR"){
+    return true;}
+  else {
+    return false;
+  }
+}
+
+
 }

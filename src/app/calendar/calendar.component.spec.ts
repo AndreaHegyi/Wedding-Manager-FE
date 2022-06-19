@@ -1,25 +1,35 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TestBed, async } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { CalendarComponent } from './calendar.component';
 
 describe('CalendarComponent', () => {
-  let component: CalendarComponent;
-  let fixture: ComponentFixture<CalendarComponent>;
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule
+      ],
+      declarations: [
+        CalendarComponent
+      ],
+    }).compileComponents();
+  }));
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ CalendarComponent ]
-    })
-    .compileComponents();
+  it('should create the app', () => {
+    const fixture = TestBed.createComponent(CalendarComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app).toBeTruthy();
   });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(CalendarComponent);
-    component = fixture.componentInstance;
+  it(`should have as title 'angular-excel-example'`, () => {
+    const fixture = TestBed.createComponent(CalendarComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app.title).toEqual('angular-excel-example');
+  });
+
+  it('should render title', () => {
+    const fixture = TestBed.createComponent(CalendarComponent);
     fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.content span').textContent).toContain('angular-excel-example app is running!');
   });
 });

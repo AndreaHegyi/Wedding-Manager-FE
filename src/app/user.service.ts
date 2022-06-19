@@ -12,6 +12,7 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
+  
   public register(user: User): Observable<User>{
     return this.http.post<User>(`${this.apiServerUrl}/api/v1/registration`, user);
   }
@@ -19,4 +20,7 @@ export class UserService {
   public confirm(token: string): Observable<void>{
     return this.http.get<void>(`${this.apiServerUrl}/api/v1/registration/confirm?token=${token}`);
   }
+
+  
+  
 }
