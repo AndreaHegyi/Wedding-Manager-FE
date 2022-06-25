@@ -17,6 +17,6 @@ export class StartComponent implements OnInit {
   };
 
   goToLogin= function () {
-    this.router.navigate(['localhost:8080/login']);
+    this.router.navigate(['/login']);
   };
 }

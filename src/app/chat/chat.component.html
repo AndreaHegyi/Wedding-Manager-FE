@@ -1,92 +1,25 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+<stream-channel-list></stream-channel-list>
+<stream-channel>
+  <stream-channel-header></stream-channel-header>
+  <stream-message-list></stream-message-list>
+  <stream-notification-list></stream-notification-list>
+  <stream-message-input></stream-message-input>
+  <stream-thread name="thread">
+    <stream-message-list
+      name="thread-message-list"
+      mode="thread"
+    ></stream-message-list>
+    <stream-message-input
+      mode="thread"
+      name="thread-message-input"
+    ></stream-message-input>
+  </stream-thread>
+</stream-channel>
 
+<ng-template #customMessageTemplate let-message="message">
+  <app-message [message]="message"></app-message>
+</ng-template>
 
-<html>
-<head>
-
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet">
-
-</head>
-<body>
-<div class="container">
-<h3 class=" text-center">Messaging</h3>
-<div class="messaging">
-      <div class="inbox_msg">
-        <div class="inbox_people">
-          <div class="headind_srch">
-            <div class="recent_heading">
-              <h4>Recent</h4>
-            </div>
-          </div>
-          <div class="inbox_chat">
-            <div class="chat_list active_chat">
-              <div class="chat_people">
-                <div class="chat_img"> </div>
-                <div class="chat_ib">
-                  <h5>Royal Venue<span class="chat_date">March 18</span></h5>
-                  <p>Let's keep in touch! :)</p>
-                </div>
-              </div>
-            </div>
-            <div class="chat_list">
-              <div class="chat_people">
-                <div class="chat_img"> </div>
-                <div class="chat_ib">
-                  <h5>Acoustic sounds<span class="chat_date">Jan 24</span></h5>
-                  <p>Would you be interested in working with us?</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="mesgs">
-          <div class="msg_history">
-            <div class="outgoing_msg">
-              <div class="sent_msg">
-                <p>Hello! :)</p>
-                <span class="time_date"> 11:01 AM    |    June 9</span> </div>
-            </div>
-            <div class="incoming_msg">
-              <div class="incoming_msg_img"> </div>
-              <div class="received_msg">
-                <div class="received_withd_msg">
-                  <p>Hello!</p>
-                  <span class="time_date"> 11:01 AM    |    June 9</span></div>
-              </div>
-            </div>
-            <div class="outgoing_msg">
-              <div class="sent_msg">
-                <p>Could we plan a day for us to see the venue?</p>
-                <span class="time_date"> 11:03 AM    |    Today</span> </div>
-            </div>
-            <div class="incoming_msg">
-              <div class="incoming_msg_img"></div>
-              <div class="received_msg">
-                <div class="received_withd_msg">
-                  <p>Of course! Don't hesitate to call us!</p>
-                  <span class="time_date"> 11:05 AM    |    Yesterday</span></div>
-              </div>
-            </div>
-            <div class="outgoing_msg">
-              <div class="sent_msg">
-                <p>Let's keep in touch! :)</p>
-                <span class="time_date"> 11:06 AM    |    Today</span> </div>
-            </div>
-          </div>
-          <div class="type_msg">
-            <div class="input_msg_write">
-              <input type="text" class="write_msg" placeholder="Type a message" />
-              <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-    
-      
-    </div></div>
-    </body>
-    </html>
+<ng-template #customChannelPreviewTemplate let-channel="channel">
+  <app-channel-preview [channel]="channel"></app-channel-preview>
+</ng-template>

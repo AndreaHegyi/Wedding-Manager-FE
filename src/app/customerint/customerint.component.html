@@ -1,5 +1,5 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+<div *ngIf="showCustomer">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" style="color:brown;">Wedding Planner</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,86 +23,33 @@
   </div>
 </nav>
 
-<div class="container" id="main-container">
+<div *ngFor="let user of users"class="container" id="main-container">
   <div class="row mt-5">
     <div class="col-12">
-    </div>
-  </div>
-  <div class="row">
+  <div *ngIf="user.appUserRole === 'VENDOR'" class="row">
     <div class="col-xs-6 col-sm-4">
       <div class="card">
         <div class="card-body">
           <div class="card-title align-self-center w-100">
-            <p class="m-0">Royal venue</p>
+            <p class="h4">Name: </p> {{user.vendorData.vendorName}}
           </div>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Location : Timisoara</li>
-          <li class="list-group-item">Email : royalvenue@gmail.com</li>
-          <li class="list-group-item">Phone number : +40752661820</li>
+          <p class="font-italic">Email: {{user.vendorData.vendorEmail}}</p>
+          <p class="font-italic">Phone number: {{user.vendorData.vendorPhone}}</p>
+          <p class="font-italic">Location: {{user.vendorData.vendorLocation}}</p>
         </ul>
-          <img class="img-responsive" src="assets/venue.jpeg" height="300px" width="100%">
         <div class="card-body">
-          <a class="btn btn-primary tooltips" data-placement="top" data-original-title="Visit page" role="button">Visit page</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-xs-6 col-sm-4">
-      <div class="card">
-        <div class="card-body">
-          <div class="card-title align-self-center w-100">
-            <p class="m-0">Dream dress</p>
-          </div>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Location : Arad</li>
-          <li class="list-group-item">Email : dreamdress@gmail.com</li>
-          <li class="list-group-item">Phone number : +40753678923</li>
-        </ul>
-          <img class="img-responsive" src="assets/dress.jpg" height="300px" width="100%">
-        <div class="card-body">
-          <a class="btn btn-primary tooltips" data-placement="top" data-original-title="Visit page" role="button">Visit page</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-xs-6 col-sm-4">
-      <div class="card">
-        <div class="card-body">
-          <div class="card-title align-self-center w-100">
-            <p class="m-0">Flowers shop</p>
-          </div>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Location : Bucharest</li>
-          <li class="list-group-item">Email : flowersshop@gmail.com</li>
-          <li class="list-group-item">Phone number : +40778532032</li>
-        </ul>
-          <img class="img-responsive" src="assets/flowers.jpg" height="300px" width="100%">
-        <div class="card-body">
-          <a class="btn btn-primary tooltips" data-placement="top" data-original-title="Visit page" role="button">Visit page</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-xs-6 col-sm-4">
-      <div class="card">
-        <div class="card-body">
-          <div class="card-title align-self-center w-100">
-            <p class="m-0">Acoustic sounds</p>
-          </div>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Location : Timisoara</li>
-          <li class="list-group-item">Email : acoustic sounds@gmail.com</li>
-          <li class="list-group-item">Phone number : +40714561234</li>
-        </ul>
-          <img class="img-responsive" src="assets/music.png" height="300px" width="100%">
-        <div class="card-body">
-          <a class="btn btn-primary tooltips" data-placement="top" data-original-title="Visit page" role="button">Visit page</a>
+          <div class="float-right btn-group btn-group-sm">
+            <a  class = "btn btn-info" data-placement="top" data-original-title="Visit page" (click)="visit(user.id)">Visit page</a>
+           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+    </div>
+    </div>
+    </div>
+  </div>
+
+  <app-vendorsaved *ngIf="showSelectedVendor" [vendorSelected]="vendorSelected"></app-vendorsaved>

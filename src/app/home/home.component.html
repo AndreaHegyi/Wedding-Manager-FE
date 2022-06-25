@@ -5,7 +5,7 @@
       <div class="card-group mb-0">
         <div class="card p-4">
           <div class="card-body">
-            <form #userForm="ngForm" (ngSubmit)="addAccount(userForm)">
+            <form #userForm="ngForm"  (ngSubmit)="addAccount(userForm)">
               <fieldset>
                 <h1>Register</h1>
                 <div class="input-group mb-4">
@@ -15,10 +15,10 @@
                   <input type="text" ngModel name="lastName" class="form-control" id="lastName" placeholder="Last name" required>
                 </div>
                 <div class="input-group mb-4">
-                  <input type="text" ngModel name="email" class="form-control" id="email" placeholder="Email" required>
+                  <input type="text" ngModel email="true" name="email" class="form-control" id="email" placeholder="Email" required>
                 </div>
                 <div class="input-group mb-3">
-                  <input type="text" ngModel name="password" class="form-control" id="password" placeholder="Password" required>
+                  <input type="password" ngModel name="password" class="form-control" id="password" placeholder="Password" required>
                 </div>
                 <div class="input-group mb-4">
                   <input type="text" ngModel name="location" class="form-control" id="location" placeholder="Location" required>
@@ -32,7 +32,7 @@
                 </div>
                 <div class="row">
                   <div class="col-6">
-                    <button [disabled]="userForm.invalid" type="submit" class="btn btn-primary px-4">Register</button>
+                    <button [disabled]="userForm.invalid" type="submit" class="btn btn-primary px-4" style="background-color: pink; border-color: pink" >Register</button>
                   </div>
                 </div>
               </fieldset>

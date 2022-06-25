@@ -5,9 +5,11 @@ import { ChatComponent } from './chat/chat.component';
 import { ConfirmComponent } from './confirm/confirm.component';
 import { CustomerintComponent } from './customerint/customerint.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { StartComponent } from './start/start.component';
 import { VendorintComponent } from './vendorint/vendorint.component';
+import { VendorsavedComponent } from './vendorsaved/vendorsaved.component';
 
 const routes: Routes = [ 
   {path: 'start', component: StartComponent},
@@ -18,6 +20,9 @@ const routes: Routes = [
   {path: 'chat', component: ChatComponent},
   {path: 'calendar', component: CalendarComponent},
   {path: 'confirm', component: ConfirmComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'vendorsaved', component: VendorsavedComponent},
+  {path: 'vendorsaved/:id', component: VendorsavedComponent},
   {path: '', redirectTo: '/start', pathMatch: 'full'}
 ];
 
